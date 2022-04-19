@@ -1,8 +1,11 @@
 # NeteaseMusic
 
 1.clone网易云音乐API
+
 2.本地启动网易云音乐API
-3.将后端基础访问地址填写到根目录下 common/config.js中，例：
+
+3.将后端基础访问地址填写到根目录下 common/config.js中，例：export const baseUrl = 'http://localhost:3000'
+
 
 
 # 网易云音乐 API
