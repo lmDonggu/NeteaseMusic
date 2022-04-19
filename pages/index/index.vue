@@ -10,13 +10,14 @@
 					<input type="text" placeholder="搜索歌曲" />
 				</view>
 				<!-- 骨架屏 -->
-				<!-- <view v-if="isLoading">
-							<m-for-skeleton :avatarSize="206" :row="3" :loading="isLoading" isarc="square" v-for="(item,key) in 4" :key="key" :titleStyle="{}" :title="false">
-							</m-for-skeleton>
-						</view> -->
+				<view v-if="isLoading">
+					<m-for-skeleton :avatarSize="206" :row="3" :loading="isLoading" isarc="square"
+						v-for="(item,key) in 4" :key="key" :titleStyle="{}" :title="false">
+					</m-for-skeleton>
+				</view>
 
-				<view class="index-list">
-					<!-- <view class="index-list" v-else> -->
+				<!-- 榜单列表 -->
+				<view class="index-list" v-else>
 					<view class="index-list-item" v-for="(item, index) in topList" :key="index"
 						@tap="handleToList(item.id)">
 						<view class="index-list-img">
@@ -41,6 +42,8 @@
 	import {
 		topList
 	} from '../../common/api.js'
+	import mForSkeleton from "@/components/m-for-skeleton/m-for-skeleton";
+
 	export default {
 		data() {
 			return {
@@ -49,8 +52,8 @@
 			}
 		},
 		components: {
-			musichead
-			// mForSkeleton
+			musichead,
+			mForSkeleton
 		},
 		onLoad() {
 			topList().then((res) => {

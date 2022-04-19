@@ -10077,7 +10077,15 @@ module.exports = index_cjs;
 /* 17 */,
 /* 18 */,
 /* 19 */,
-/* 20 */
+/* 20 */,
+/* 21 */,
+/* 22 */,
+/* 23 */,
+/* 24 */,
+/* 25 */,
+/* 26 */,
+/* 27 */,
+/* 28 */
 /*!********************************************************************************!*\
   !*** E:/Work/vue_project/uniapp_网易云音乐/neteaseMusic_uniapp/common/iconfont.css ***!
   \********************************************************************************/
@@ -10089,7 +10097,7 @@ module.exports = index_cjs;
   
 
 /***/ }),
-/* 21 */
+/* 29 */
 /*!**************************************************************************!*\
   !*** E:/Work/vue_project/uniapp_网易云音乐/neteaseMusic_uniapp/common/api.js ***!
   \**************************************************************************/
@@ -10097,7 +10105,7 @@ module.exports = index_cjs;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.topList = topList;exports.list = list;exports.songDetail = songDetail;exports.songSimi = songSimi;exports.songComment = songComment;exports.songLyric = songLyric;exports.songUrl = songUrl;exports.searchHot = searchHot;exports.searchWord = searchWord;exports.searchSuggest = searchSuggest;var _config = __webpack_require__(/*! ./config.js */ 22);
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.topList = topList;exports.list = list;exports.songDetail = songDetail;exports.songSimi = songSimi;exports.songComment = songComment;exports.songLyric = songLyric;exports.songUrl = songUrl;exports.searchHot = searchHot;exports.searchWord = searchWord;exports.searchSuggest = searchSuggest;var _config = __webpack_require__(/*! ./config.js */ 30);
 
 
 
@@ -10185,7 +10193,7 @@ function searchSuggest(word) {
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 22 */
+/* 30 */
 /*!*****************************************************************************!*\
   !*** E:/Work/vue_project/uniapp_网易云音乐/neteaseMusic_uniapp/common/config.js ***!
   \*****************************************************************************/
