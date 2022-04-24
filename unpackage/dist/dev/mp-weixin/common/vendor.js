@@ -10193,7 +10193,7 @@ function searchSuggest(word) {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.baseUrl = void 0;var baseUrl = 'https://autumnfish.cn';
+Object.defineProperty(exports, "__esModule", { value: true });exports.baseUrl = void 0;var baseUrl = 'https://autumnfish.cn/';
 // export const baseUrl = 'http://localhost:3000'
 exports.baseUrl = baseUrl;
 

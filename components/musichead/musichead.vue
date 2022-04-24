@@ -72,6 +72,7 @@
 <style scoped>
 	.music-head {
 		position: relative;
+		overflow: hidden;
 		width: 100%;
 		height: 40px;
 		line-height: 40px;

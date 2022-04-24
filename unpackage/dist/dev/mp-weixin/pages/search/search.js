@@ -247,10 +247,27 @@ var _api = __webpack_require__(/*! ../../common/api.js */ 21);function _interopR
       searchHistory: [],
       searchType: 1,
       searchList: [],
-      searchSuggest: [] };
+      searchSuggest: [],
+      // 状态栏高度
+      statusBarHeight: 20,
+      // 导航栏高度
+      navBarHeight: 40 };
 
   },
   onLoad: function onLoad() {var _this = this;
+
+    // 获取手机系统信息
+    var info = uni.getSystemInfoSync();
+    // 设置状态栏高度
+    this.statusBarHeight = info.statusBarHeight;
+
+    // 获取胶囊的位置
+    var menuButtonInfo = uni.getMenuButtonBoundingClientRect();
+    // 导航栏高度 = (胶囊底部高度 - 状态栏的高度) + (胶囊顶部高度 - 状态栏的高度)
+    this.navBarHeight = menuButtonInfo.bottom - info.statusBarHeight + (menuButtonInfo.top - info.
+    statusBarHeight);
+
+
     (0, _api.searchHot)().then(function (res) {
       if (res[1].data.code == 200) {
         _this.searchHot = res[1].data.data;

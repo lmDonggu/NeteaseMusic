@@ -224,6 +224,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 __webpack_require__(/*! @/common/iconfont.css */ 20);
 
 var _api = __webpack_require__(/*! ../../common/api.js */ 21); //
@@ -286,25 +287,15 @@ var _api = __webpack_require__(/*! ../../common/api.js */ 21); //
 //
 //
 //
-var musichead = function musichead() {__webpack_require__.e(/*! require.ensure | components/musichead/musichead */ "components/musichead/musichead").then((function () {return resolve(__webpack_require__(/*! ../../components/musichead/musichead.vue */ 47));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default = { data: function data() {return { playlist: { coverImgUrl: '', creator: { avatarUrl: '' }, trackCount: '' }, privileges: [], isLoading: false // // 状态栏高度
-      // statusBarHeight: 20,
-      // // 导航栏高度
-      // navBarHeight: 40
-    };}, components: { musichead: musichead }, // created() {
-  // 	// 获取手机系统信息
-  // 	const info = uni.getSystemInfoSync()
-  // 	// 设置状态栏高度
-  // 	this.statusBarHeight = info.statusBarHeight
-  //
-  // 	// 获取胶囊的位置
-  // 	const menuButtonInfo = uni.getMenuButtonBoundingClientRect()
-  // 	// 导航栏高度 = (胶囊底部高度 - 状态栏的高度) + (胶囊顶部高度 - 状态栏的高度)
-  // 	this.navBarHeight = (menuButtonInfo.bottom - info.statusBarHeight) + (menuButtonInfo.top - info
-  // 		.statusBarHeight)
-  //
-  // },
-  onLoad: function onLoad(options) {var _this = this; // console.log(options.id)
-    uni.showLoading({ title: '加载中...', icon: 'loading' });(0, _api.list)(options.id).then(function (res) {// console.log(res);
+//
+var musichead = function musichead() {__webpack_require__.e(/*! require.ensure | components/musichead/musichead */ "components/musichead/musichead").then((function () {return resolve(__webpack_require__(/*! ../../components/musichead/musichead.vue */ 47));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default = { data: function data() {return { playlist: { coverImgUrl: '', creator: { avatarUrl: '' }, trackCount: '' }, privileges: [], isLoading: false, // 状态栏高度
+      statusBarHeight: 20, // 导航栏高度
+      navBarHeight: 40 };}, components: { musichead: musichead }, onLoad: function onLoad(options) {var _this = this; // console.log(options.id)
+    uni.showLoading({ title: '加载中...', icon: 'loading' }); // 获取手机系统信息
+    var info = uni.getSystemInfoSync(); // 设置状态栏高度
+    this.statusBarHeight = info.statusBarHeight; // 获取胶囊的位置
+    var menuButtonInfo = uni.getMenuButtonBoundingClientRect(); // 导航栏高度 = (胶囊底部高度 - 状态栏的高度) + (胶囊顶部高度 - 状态栏的高度)
+    this.navBarHeight = menuButtonInfo.bottom - info.statusBarHeight + (menuButtonInfo.top - info.statusBarHeight);(0, _api.list)(options.id).then(function (res) {// console.log(res);
       if (res[1].data.code === 200) {_this.playlist = res[1].data.playlist;_this.privileges = res[1].data.privileges;_this.$store.commit('INIT_TOPLISTIDS', res[1].data.playlist.trackIds);_this.isLoading = true;uni.hideLoading();}});}, methods: { handleToDetail: function handleToDetail(songId) {// console.log(songId);
       uni.navigateTo({ url: '/pages/detail/detail?songId=' + songId });} } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
