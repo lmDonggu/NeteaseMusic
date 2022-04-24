@@ -232,9 +232,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-__webpack_require__(/*! @/common/iconfont.css */ 28);
+__webpack_require__(/*! @/common/iconfont.css */ 20);
 var _musichead = _interopRequireDefault(__webpack_require__(/*! ../../components/musichead/musichead.vue */ 47));
-var _api = __webpack_require__(/*! ../../common/api.js */ 29);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _toConsumableArray(arr) {return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread();}function _nonIterableSpread() {throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");}function _unsupportedIterableToArray(o, minLen) {if (!o) return;if (typeof o === "string") return _arrayLikeToArray(o, minLen);var n = Object.prototype.toString.call(o).slice(8, -1);if (n === "Object" && o.constructor) n = o.constructor.name;if (n === "Map" || n === "Set") return Array.from(o);if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);}function _iterableToArray(iter) {if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter);}function _arrayWithoutHoles(arr) {if (Array.isArray(arr)) return _arrayLikeToArray(arr);}function _arrayLikeToArray(arr, len) {if (len == null || len > arr.length) len = arr.length;for (var i = 0, arr2 = new Array(len); i < len; i++) {arr2[i] = arr[i];}return arr2;}var _default =
+var _api = __webpack_require__(/*! ../../common/api.js */ 21);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function _toConsumableArray(arr) {return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread();}function _nonIterableSpread() {throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");}function _unsupportedIterableToArray(o, minLen) {if (!o) return;if (typeof o === "string") return _arrayLikeToArray(o, minLen);var n = Object.prototype.toString.call(o).slice(8, -1);if (n === "Object" && o.constructor) n = o.constructor.name;if (n === "Map" || n === "Set") return Array.from(o);if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);}function _iterableToArray(iter) {if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter);}function _arrayWithoutHoles(arr) {if (Array.isArray(arr)) return _arrayLikeToArray(arr);}function _arrayLikeToArray(arr, len) {if (len == null || len > arr.length) len = arr.length;for (var i = 0, arr2 = new Array(len); i < len; i++) {arr2[i] = arr[i];}return arr2;}var _default =
 
 
 
@@ -447,13 +447,55 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 var _default =
 {
   name: "musichead",
   data: function data() {
-    return {};
+    return {
+      // 状态栏高度
+      statusBarHeight: 20,
+      // 导航栏高度
+      navBarHeight: 40,
+      lineHeight: 40,
+      // 按钮高度
+      buttonHeight: 32,
+      // 按钮顶部高度
+      buttonTop: 4 };
+
   },
   props: ['title', 'icon', 'color', 'iconblack'],
+  created: function created() {
+    // 获取手机系统信息
+    var info = uni.getSystemInfoSync();
+    // console.log(info);
+    // 设置状态栏高度
+    this.statusBarHeight = info.statusBarHeight;
+    // // h5 app mp-alipay
+
+    // 获取胶囊的位置
+    var menuButtonInfo = uni.getMenuButtonBoundingClientRect();
+    console.log(menuButtonInfo);
+    // 导航栏高度 = (胶囊底部高度 - 状态栏的高度) + (胶囊顶部高度 - 状态栏的高度)
+    this.navBarHeight = menuButtonInfo.bottom - info.statusBarHeight + (menuButtonInfo.top - info.
+    statusBarHeight);
+    this.lineHeight = this.navBarHeight;
+    // 胶囊高度
+    this.buttonHeight = menuButtonInfo.bottom - menuButtonInfo.top;
+    // 胶囊顶部高度
+    this.buttonTop = menuButtonInfo.top - info.statusBarHeight;
+
+  },
   methods: {
     handleToBack: function handleToBack() {
       uni.navigateBack();

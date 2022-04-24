@@ -10,7 +10,8 @@
 /*每个页面公共css */
 .container {
 	width: 100%;
-	height: calc(100vh - 70px);
+	/* 减去头部高度 */
+	height: calc(100vh - 40px);
 }
 .container scroll-view {
 	height: 100%;

@@ -135,7 +135,8 @@
 }
 .list-music.data-v-7d5e07c6 {
 	background-color: #fff;
-	border-radius: 50rpx;
+	border-top-left-radius: 50rpx;
+	border-top-right-radius: 50rpx;
 	margin-top: 40rpx;
 	overflow: hidden;
 }

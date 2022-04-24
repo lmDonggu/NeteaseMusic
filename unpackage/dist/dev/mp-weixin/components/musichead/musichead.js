@@ -125,13 +125,55 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 var _default =
 {
   name: "musichead",
   data: function data() {
-    return {};
+    return {
+      // 状态栏高度
+      statusBarHeight: 20,
+      // 导航栏高度
+      navBarHeight: 40,
+      lineHeight: 40,
+      // 按钮高度
+      buttonHeight: 32,
+      // 按钮顶部高度
+      buttonTop: 4 };
+
   },
   props: ['title', 'icon', 'color', 'iconblack'],
+  created: function created() {
+    // 获取手机系统信息
+    var info = uni.getSystemInfoSync();
+    // console.log(info);
+    // 设置状态栏高度
+    this.statusBarHeight = info.statusBarHeight;
+    // // h5 app mp-alipay
+
+    // 获取胶囊的位置
+    var menuButtonInfo = uni.getMenuButtonBoundingClientRect();
+    console.log(menuButtonInfo);
+    // 导航栏高度 = (胶囊底部高度 - 状态栏的高度) + (胶囊顶部高度 - 状态栏的高度)
+    this.navBarHeight = menuButtonInfo.bottom - info.statusBarHeight + (menuButtonInfo.top - info.
+    statusBarHeight);
+    this.lineHeight = this.navBarHeight;
+    // 胶囊高度
+    this.buttonHeight = menuButtonInfo.bottom - menuButtonInfo.top;
+    // 胶囊顶部高度
+    this.buttonTop = menuButtonInfo.top - info.statusBarHeight;
+
+  },
   methods: {
     handleToBack: function handleToBack() {
       uni.navigateBack();
