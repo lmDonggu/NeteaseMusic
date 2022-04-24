@@ -156,14 +156,12 @@ var _default =
   created: function created() {
     // 获取手机系统信息
     var info = uni.getSystemInfoSync();
-    // console.log(info);
     // 设置状态栏高度
     this.statusBarHeight = info.statusBarHeight;
     // // h5 app mp-alipay
 
     // 获取胶囊的位置
     var menuButtonInfo = uni.getMenuButtonBoundingClientRect();
-    console.log(menuButtonInfo);
     // 导航栏高度 = (胶囊底部高度 - 状态栏的高度) + (胶囊顶部高度 - 状态栏的高度)
     this.navBarHeight = menuButtonInfo.bottom - info.statusBarHeight + (menuButtonInfo.top - info.
     statusBarHeight);
